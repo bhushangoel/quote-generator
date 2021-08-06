@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Quotes from "./components/Quotes";
 
 function App() {
+  let color = "peru";
+  const cb = (resp) => {
+    console.log("resp : ", resp);
+    color = resp;
+    document.body.style.backgroundColor = color;
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Quotes colorCallBack={cb} />
     </div>
   );
 }
